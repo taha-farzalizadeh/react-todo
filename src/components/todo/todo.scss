@@ -1,0 +1,226 @@
+body {
+  background-color: #262336;
+  color: #fff;
+  min-height: 100vh;
+}
+.header-text{
+  text-align: center;
+}
+.form-container{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 38px;
+}
+.add-task-form{
+  width: clamp(290px,35vw,650px);
+  border-radius: 24px;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 30px 38px 38px;
+  label{
+    position: relative;
+    overflow: hidden;
+    &.error{
+      border: 2px solid red;
+      border-radius: 6px;
+    }
+  }
+  p.err-msg{
+    text-align: left;
+    color: red;
+    margin-top: 0.2rem;
+  }
+  input, button {
+    padding: 0rem;
+    font-size: 2rem;
+    border: none;
+    background: white;
+  }
+  input{
+    padding-left: 5px;
+    padding-bottom: 2px;
+    box-sizing: border-box;
+    outline: none;
+    height: 50px;
+    font-size: 25px;
+    width: 100%;
+    border-radius: 5px;
+    &::placeholder{
+      font-size: 20px;
+    }
+  }
+  button{
+    position: absolute;
+    box-sizing: border-box;
+    right: 0;
+    height: 100%;
+    padding: 2px 10px;
+    color: #ff6f47;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: #f7fffe;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background: #ff6f47;
+      color: white;
+    }
+  }
+}
+.column{
+  width: 100%;
+}
+.todos-list {
+  display: flex;
+  align-items: flex-start;
+  .column{
+    background-color: #46425c;
+    overflow: hidden;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    .header{
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      border-bottom: none;
+      -webkit-box-pack: center;
+      justify-content: center;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+    &.completed .header{
+      background-color: rgb(13, 148, 40);
+    }
+    &.doing .header{
+      background-color: rgb(201, 120, 14);
+    }
+    &.todo .header{
+      background-color: rgb(16, 146, 201);
+    }
+
+    .header{
+      text-align: center;
+      h2{
+        padding: 10px;
+        margin-top: 0;
+      }
+    }
+  }
+}
+.todo{
+  &-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: background-color 0.2s ease 0s, opacity 0.1s ease 0s;
+    user-select: none;
+  }
+  &-list {
+    min-height: 30px;
+    min-width: 85%;
+    list-style: none;
+  }
+  &-li-container {
+    margin: 0.5rem;
+    background: white;
+    font-size: 1.5rem;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 1s ease;
+    border-radius: 5px;
+    overflow: hidden;
+    li {
+      flex: 1;
+    }
+  }
+}
+.trash-btn,
+.complete-btn,
+.back-btn,
+.ellipsis-btn,
+.edit-btn {
+  background: #ff6f47;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.edit-btn{
+  background-color: #fff;
+  color: #183153;
+  svg{
+    transition: 0.3s;
+  }
+  &:hover svg{
+    transform: scale(1.4)
+  }
+}
+.ellipsis-btn{
+  background-color: rgb(201, 120, 14);
+  transition: 0.3s;
+  &:hover{
+    background: rgb(147,89,14);
+  }
+}
+.complete-btn {
+  background: rgb(11, 212, 162);
+  transition: 0.3s;
+  &:hover{
+    background: rgb(60,163,137);
+  }
+}
+.back-btn{
+  background-color: rgb(16, 146, 201);
+  transition: 0.3s;
+  &:hover{
+    background-color: rgb(18, 111, 151);
+  }
+}
+.trash-btn{
+  transition: 0.3s;
+  &:hover{
+    background: rgb(163,61,32);
+  }
+}
+.todo-item {
+  padding: 0rem 0.5rem;
+  &.edit{
+    padding: 0;
+  }
+  .todo-text{
+    margin: 0;
+  }
+}
+.fa-icons{
+  height: 1.2rem;
+  width: 1.2rem;
+}
+.edit-task-form{
+  border-radius: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 100%;
+  input{
+    padding:15px 1px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .todos-list{
+    flex-wrap: wrap;
+  }
+}
